@@ -28,3 +28,32 @@ void swap(stack_t **stack, unsigned int line_number)
 	fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * swap - Swaps the top two elements
+ * @stack: The stack
+ * @line_number: Line numbers of .m files
+ *
+ * Return: void
+*/
+void add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top = *stack, *nth_2 = NULL;
+
+	if (top)
+	{
+		nth_2 = top->next;
+
+		if (nth_2)
+		{
+			nth_2->n = top->n + nth_2->n;
+			free(nth_2->prev);
+			(*stack) = nth_2;
+			(*stack)->prev = NULL;
+			return;
+		}
+	}
+
+	fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+	exit(EXIT_FAILURE);
+}
