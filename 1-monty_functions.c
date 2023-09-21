@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * swap - Swaps the top two elements
+ * @stack: The stack
+ * @line_number: Line numbers of .m files
+ *
+ * Return: void
+*/
 void swap(stack_t **stack, unsigned int line_number)
 {
 	int temp = 0;
