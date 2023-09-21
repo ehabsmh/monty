@@ -16,7 +16,7 @@ void (*opcode_handler(char *opcode))(stack_t **stack, unsigned int line_number)
 			{"swap", swap}, {"add", add},
 			{"nop", nop}, {"sub", sub},
 			{"div", _div}, {"mul", mul}, 
-			{NULL, NULL},
+			{"pchar", pchar}, {NULL, NULL},
 	};
 
 	for (i = 0; instructions[i].opcode; i++)
