@@ -10,8 +10,11 @@ void (*opcode_handler(char *opcode))(stack_t **stack, unsigned int line_number)
 {
 	int i;
 
-	instruction_t instructions[] = {
-			{"push", push}, {"pall", pall}, {NULL, NULL}};
+	instruction_t instructions[] = 
+	{
+			{"push", push}, {"pall", pall},
+			{"pint", pint}, {NULL, NULL}
+	};
 
 	for (i = 0; instructions[i].opcode; i++)
 	{
