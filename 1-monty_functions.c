@@ -15,12 +15,13 @@ void swap(stack_t **stack, unsigned int line_number)
 	if (top)
 	{
 		nth_2 = top->next;
-		
+
 		if (nth_2)
 		{
 			temp = top->n;
 			top->n = nth_2->n;
 			nth_2->n = temp;
+			return;
 		}
 	}
 	else
