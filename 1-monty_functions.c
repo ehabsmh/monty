@@ -73,8 +73,8 @@ void sub(stack_t **stack, unsigned int line_number)
 
 		if (nth_2)
 		{
-			nth_2->n = nth_2->n - top->n;
-			free(nth_2->prev);
+			nth_2->n -= top->n;
+			free(*stack);
 			(*stack) = nth_2;
 			(*stack)->prev = NULL;
 			return;
