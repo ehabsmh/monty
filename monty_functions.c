@@ -82,6 +82,13 @@ void pall(stack_t **stack, unsigned int line_number)
 	}
 }
 
+/**
+ * pint - prints the top element of the stack
+ * @stack: The stack
+ * @line_number: line number of .m files
+ *
+ * Return: void
+*/
 void pint(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack)
@@ -91,4 +98,32 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 
 	printf("%d\n", (*stack)->n);
+}
+
+/**
+ * pop - Deletes the top element of the stack
+ * @stack: The stack
+ * @line_number: Line number of .m files
+ *
+ * Return: void
+*/
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (!*stack)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->next)
+	{
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+	}
+	else
+		*stack = NULL;
+
+	free(temp);
 }
