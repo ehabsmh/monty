@@ -1,10 +1,17 @@
 #include "monty.h"
 
+/**
+ * _div - divs the top two elements
+ * @stack: The stack
+ * @line_number: Line numbers of .m files
+ *
+ * Return: void
+*/
 void _div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top = *stack, *nth_2 = NULL;
 
-	
+
 	if (top)
 	{
 		nth_2 = top->next;
@@ -14,7 +21,7 @@ void _div(stack_t **stack, unsigned int line_number)
 			fprintf(stderr, "L%u: division by zero\n", line_number);
 			exit(EXIT_FAILURE);
 		}
-		
+
 		if (nth_2)
 		{
 			nth_2->n /= top->n;
@@ -29,11 +36,18 @@ void _div(stack_t **stack, unsigned int line_number)
 	exit(EXIT_FAILURE);
 }
 
+/**
+ * mul - muls the top two elements
+ * @stack: The stack
+ * @line_number: Line numbers of .m files
+ *
+ * Return: void
+*/
 void mul(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top = *stack, *nth_2 = NULL;
 
-	
+
 	if (top)
 	{
 		nth_2 = top->next;
@@ -52,6 +66,13 @@ void mul(stack_t **stack, unsigned int line_number)
 	exit(EXIT_FAILURE);
 }
 
+/**
+ * pchar - pchar elements
+ * @stack: The stack
+ * @line_number: Line numbers of .m files
+ *
+ * Return: void
+*/
 void pchar(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack)
@@ -68,6 +89,14 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * pstr - makes a string
+ * @stack: The stack
+ * @line_number: Line numbers of .m files
+ *
+ * Return: void
+*/
 
 void pstr(stack_t **stack, unsigned int line_number)
 {
