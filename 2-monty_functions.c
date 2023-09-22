@@ -85,7 +85,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 			if (traverse->n == 0)
 				break;
 
-			if (traverse->n < 32 && traverse->n > 127)
+			if (traverse->n < 1 && traverse->n > 128)
 				break;
 
 			printf("%c", traverse->n);
