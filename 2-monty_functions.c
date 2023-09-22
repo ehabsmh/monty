@@ -59,14 +59,38 @@ void pchar(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+
+	if ((*stack)->n >= 32 && (*stack)->n <= 127)
+		printf("%c\n", (*stack)->n);
 	else
 	{
-		if ((*stack)->n >= 32 && (*stack)->n <= 126)
-			printf("%c\n", (*stack)->n);
-		else
-		{
-			fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
-			exit(EXIT_FAILURE);
-		}
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		exit(EXIT_FAILURE);
 	}
+}
+
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *traverse = *stack;
+	(void)line_number;
+
+	if (!traverse)
+	{
+		printf("\n");
+		return;
+	}
+
+		while (traverse)
+		{
+			if (traverse->n == 0)
+				break;
+
+			if (traverse->n < 32 && traverse->n > 127)
+				break;
+
+			printf("%c", traverse->n);
+			traverse = traverse->next;
+		}
+
+		printf("\n");
 }
