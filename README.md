@@ -4,15 +4,11 @@ An interpreter for Monty ByteCodes files.
 
 ## The Monty language
 
----
-
 Monty 0.98 is a scripting language that is first compiled into Monty byte codes. It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.
 
 ## Monty byte code files
 
----
-
-Files containing Monty byte codes usually have the .m extension, There is not more than one instruction per line. There can be any number of spaces before or after the opcode and its argument:
+Files containing Monty byte codes usually have the .m extension, There is no more than one instruction per line. There can be any number of spaces before or after the opcode and its argument:
 
 ```
 ehab@ubuntu:~/monty$ cat -e bytecodes/000.m
@@ -82,8 +78,6 @@ ehab@ubuntu:~/monty$
 - have to use malloc and free and are not allowed to use any other function from man malloc (realloc, calloc, …)
 
 ## Compilation & Output
-
----
 
 The code will be compiled this way:
 `gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty`
